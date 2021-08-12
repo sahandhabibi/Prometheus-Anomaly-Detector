@@ -1,0 +1,14 @@
+version: "3.1"
+services:
+    pad:
+      image: quay.io/aicoe/prometheus-anomaly-detector:latest
+      ports:
+        - 8080:8080
+      environment:
+        FLT_PROM_URL: "http://example.com/"
+        FLT_RETRAINING_INTERVAL_MINUTES: 1
+        FLT_METRICS_LIST: 'example_promql_query'
+        APP_FILE: "app.py"
+        FLT_DATA_START_TIME: "3d"
+        FLT_ROLLING_TRAINING_WINDOW_SIZE: "15d"
+
